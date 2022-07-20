@@ -47,7 +47,7 @@ fn efi_main(image: uefi::Handle, st: SystemTable<Boot>) -> Status {
         config::Config::parse(buf)
     };
 
-    let graphic_info = init_graphic(bs, config.resolution);
+    // let graphic_info = init_graphic(bs, config.resolution);
     info!("config: {:#x?}", config);
 
     let acpi2_addr = st
@@ -140,7 +140,7 @@ fn efi_main(image: uefi::Handle, st: SystemTable<Boot>) -> Status {
     let bootinfo = BootInfo {
         memory_map,
         physical_memory_offset: config.physical_memory_offset,
-        graphic_info,
+        // graphic_info,
         acpi2_rsdp_addr: acpi2_addr as u64,
         smbios_addr: smbios_addr as u64,
         initramfs_addr,
